@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.luv2code.springdemo.dao.CustomerDAO;
 import com.luv2code.springdemo.entity.Customer;
-import com.luv2code.springdemo.service.CustomerService;
+import com.luv2code.springdemo.services.CustomerService;
 
 @Controller
 @RequestMapping("/customer")
