@@ -20,14 +20,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	@Transactional
 	public List<Customer> getCustomers() {
 
 		//get the current Hibernate Session
 		Session currentSession = sessionFactory.getCurrentSession();
 
-		//create the query
-		Query<Customer> theQuery = currentSession.createQuery("from Customer", Customer.class);
+		//create the query .... sort by last name
+		Query<Customer> theQuery = currentSession.createQuery("from Customer order by lastName", Customer.class);
 		
 		//exceute the query
 		List<Customer> customers = theQuery.getResultList();
@@ -36,6 +35,15 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return customers;
 	}
 
+	@Override
+	public void saveCustomer(Customer theCustomer) {
+
+		//get current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//save the customer .... finally LOL
+		currentSession.save(theCustomer);
+	}
 }
 
 
