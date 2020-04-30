@@ -10,6 +10,5 @@
 
 	<% response.sendRedirect("customer/list"); %>
 
-</body>
-	
+</body>	
 </html>
